@@ -16,7 +16,7 @@ const [projectFilterdata,setProjectFilterdata]=useState()
 
   // handling filter key change
   useEffect(() => {
-    fetch('http://wocommercew.local/graphql/', {
+    fetch('https://wocommercew.local/graphql/', {
       method: 'POST',
       headers: {'Content-Type': 'application/json'},
       body: JSON.stringify({

@@ -14,7 +14,7 @@ const Facts = () => {
     const [fact,setFact]=useState()
     const [loading,setLoading]=useState(true)
     const getfact=()=>{
-        fetch('http://wocommercew.local/graphql/', {
+        fetch('https://wocommercew.local/graphql/', {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({

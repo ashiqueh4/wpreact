@@ -9,7 +9,7 @@ const Testimonial = () => {
   const [loading,setLoading]=useState(true)
   const [testimonialtopdata,setTestimonialtopdata]=useState({testimonialTop: 'Our Team', testimonialTitle: 'Our Team Members'})
   const gettestimonial=()=>{
-      fetch('http://wocommercew.local/graphql/', {
+      fetch('https://wocommercew.local/graphql/', {
           method: 'POST',
           headers: {'Content-Type': 'application/json'},
           body: JSON.stringify({
