@@ -2,6 +2,7 @@ import React ,{useEffect,useState} from 'react'
 import Spinner from '../pages/Spinner';
 import { Hero } from '../pages/homesections';
 import Heros from '../pages/Heros';
+import { NavLink } from "react-router-dom";
 
 
 
@@ -84,15 +85,33 @@ const Header = () => {
                 return(
                 
                  <div key={items.key}>
-                 { check.length === 0 ?(<a  href={items.title ==="home"?"/":items.title.replaceAll(/ /g,"-")} className={`nav-item nav-link ${ items.title === "home" ?"active":"" }`}>
-                    { items.title }
-                  </a>):(
+                 { check.length === 0 ?(
+                  <NavLink
+                  to={items.title ==="home"?"/":items.title.replaceAll(/ /g,"-")}
+                  className={({ isActive, isPending }) =>
+                    isPending ? "pending" : isActive ? "nav-item nav-link active" : "nav-item nav-link"
+                  }
+                >
+                  { items.title }
+                </NavLink>
+                  
+                  ):(
                       <div className="nav-item dropdown">
-                      <a href="/" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">{ items.title }</a>
+                      <NavLink
+                      to={`/`}
+                      className="nav-link dropdown-toggle" data-bs-toggle="dropdown"
+                      >
+                  { items.title }
+                </NavLink>
                       <div className="dropdown-menu m-0">
                       { check.map((childrenm)=>{
                         return(
-                          <a href={childrenm.title.replaceAll(/ /g,"-")} key={childrenm.key} className="dropdown-item">{childrenm.title}</a>
+                          <NavLink
+                          to={childrenm.title.replaceAll(/ /g,"-")}
+                          key={childrenm.key} className="dropdown-item"
+                          >
+                      {childrenm.title}
+                    </NavLink>
                         )
                       })}
                     
