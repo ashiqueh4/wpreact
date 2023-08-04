@@ -97,12 +97,7 @@ const Header = () => {
                   
                   ):(
                       <div className="nav-item dropdown">
-                      <NavLink
-                      to={`/`}
-                      className="nav-link dropdown-toggle" data-bs-toggle="dropdown"
-                      >
-                  { items.title }
-                </NavLink>
+                    <a href="#" className="nav-link dropdown-toggle" data-bs-toggle="dropdown">{ items.title }</a>
                       <div className="dropdown-menu m-0">
                       { check.map((childrenm)=>{
                         return(
